@@ -1,0 +1,12 @@
+<filesMatch ".(js|css|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+
+
+<IfModule mod_brotli.c>
+    AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript
+</IfModule>
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript
+
+AddDefaultCharset utf-8

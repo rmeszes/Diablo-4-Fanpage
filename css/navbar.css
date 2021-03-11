@@ -1,0 +1,202 @@
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+.navbar {
+    z-index: 100;
+}
+.navbar::before {
+    background: #790707;
+    background: linear-gradient(to top, #790707 0%, #121212 15%, #121212 80%, #790707 100%);
+    z-index: -100;
+    transition: .45s ease-in-out;
+    opacity: 0;
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    filter: drop-shadow(10px 10px 10px red);
+}
+
+.navbar.active::before {
+    opacity: 1;
+}
+
+.navbar .nav-link {
+    color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color:#fff;
+    text-decoration: none;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2533964269301471) 91%, rgba(0,212,255,0) 100%);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.navbar .navbar-brand {
+    color: rgb(255, 255, 255);
+
+}
+
+/* Change navbar styling on scroll 
+.navbar.active {
+    
+}*/
+
+.navbar.active .nav-link {
+    color: #fff;
+
+}
+
+.navbar.active .nav-link:hover,
+.navbar.active .nav-link:focus {
+    /*color: #fff;*/
+    text-decoration: none;
+    background: rgb(0,0,0);
+    background: radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(148,1,1,0.25) 91%, rgba(0,212,255,0) 100%);
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 0px rgb(184, 184, 184), 0 0 5px #ff3b3b;
+        color: rgb(255, 242, 242);
+    }
+    to {
+        text-shadow: 0 0 0px #fff, 0 0 5px #a50101;
+        color: rgb(255, 178, 159);
+    }
+}
+
+@-webkit-keyframes glow {
+    from {
+        text-shadow: 0 0 0px rgb(184, 184, 184), 0 0 5px #ff3b3b;
+        color: rgb(255, 242, 242);
+    }
+    to {
+        text-shadow: 0 0 0px #fff, 0 0 5px #a50101;
+        color: rgb(255, 178, 159);
+    }
+}
+
+.navbar.active .navbar-brand {
+    color: #fff;
+}
+
+#top {
+    padding-top:15px;
+}
+
+.navbar .dropdown-menu {
+    background: rgba(17, 17, 17, 0.356);
+    border: none;
+    border-radius: 10px;
+    transition: .45s ease-in-out;
+}
+
+.navbar.active .dropdown-menu {
+    background: rgba(17, 17, 17, 1);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.navbar .dropdown-item:hover {
+    background: rgba(17, 17, 17, 0.356);
+}
+
+.navbar .dropdown-menu .nav-link {
+    background: transparent;
+    animation: none;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+/* Change navbar styling on small viewports */
+@media (max-width: 991.98px) {
+    .navbar {
+        background: #790707;
+        background: linear-gradient(to top, #790707 0%, #121212 15%, #121212 80%, #790707 100%);
+    }
+
+    .navbar .navbar-brand, .navbar .nav-link, .navbar button{
+        color: #fff;
+    }
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link:focus {
+        color: #fff;
+        text-decoration: none;
+        background: rgb(0,0,0);
+        background: radial-gradient(circle, rgba(148,1,1,0.05) 0%, rgba(148,1,1,0.3) 100%);
+        animation: glow 1.5s ease-in-out infinite alternate;
+    }
+
+    .navbar .fa-bars{
+        transition: opacity 0.3s, transform 0.3s;
+        grid-area: 1 / 1 / 1 / 1;
+    }
+
+    .navbar .fa-arrow-down{
+        transition: opacity .3s, transform .3s;
+		transform: rotate(180deg);
+        opacity: 0;
+        grid-area: 1 / 1 / 1 / 1;
+    }
+
+/*     .navbar .rotate-90 .fas {
+        transform: rotate(-90deg);
+    } */
+
+    .navbar .rotate-90 .fa-bars {
+        transform: rotate(-180deg);
+        opacity: 0;
+    }
+
+    .navbar .rotate-90 .fa-arrow-down {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+
+    .navbar .navbar-toggler {
+        display: grid;
+    }
+
+    #top {
+        padding-top:10px;
+    }
+
+    .navbar .dropdown-menu {
+        border: none;
+        background: transparent;
+        height: auto;
+        padding: 0;
+        margin-top: 0;
+        display:block;
+        
+    }
+
+    .navbar .dropdown-item {
+        padding: 0;
+    }
+
+    .navbar .btn-group {
+        display: inherit;
+    }
+
+    .navbar .btn.dropdown-toggle-split {
+        display: none;
+    }
+    .navbar.active .dropdown-menu {
+        background: none;
+    }
+}
